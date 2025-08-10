@@ -18,7 +18,7 @@ def index():
             buf = io.BytesIO()
             img.save(buf, format='PNG')
             buf.seek(0)
-            qr_img = base64.b64decode(buf.read()).decode('ascii')
+            qr_img = base64.b64encode(buf.read()).decode('ascii')
 
     return render_template('index.html', qr_img=qr_img, input_text=input_text)
 
